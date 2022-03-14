@@ -1,0 +1,35 @@
+print("在线更新版本-2022/3/14/18/22")
+
+driver = webdriver.Chrome()
+def visit1():
+    driver.get('https://www.fashiontiy.com/')
+    a = input('请到达网格页面后单击回车')
+
+def visit2(pageurl):
+    driver.get(pageurl)
+    res = driver.page_source
+    etreeres = etree.HTML(res)
+    urls = etreeres.xpath('//div[@class="list_product"]/div/a/@href')
+    return urls
+
+def visit3(url):
+    res = req.get(url).text
+    print(url)
+    name = url.split('/')[-1]
+    f = open('{}.txt'.format(name), 'a')
+    f.write(res.encode("gbk","ignore").decode("gbk","ignore"))
+    f.close()
+visit1()
+p = 1
+pageurl = driver.current_url
+while True:
+    try:
+        urls = visit2(pageurl +"?pageNum="+str(p))
+        if urls == []:
+           break
+        print(urls)
+        for url in urls:
+           visit3(url)
+        p += 1
+    except:
+        break
