@@ -27,7 +27,6 @@ while True:
         urls = visit2(pageurl +"?pageNum="+str(p))
         if urls == []:
            break
-        print(urls)
         for url in urls:
            visit3(url)
         p += 1
