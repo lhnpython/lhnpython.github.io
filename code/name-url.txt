@@ -1,0 +1,30 @@
+print("在线更新版本 2022/3/14/15/29")
+
+f0 = open('0.csv', 'r')
+fn = open('name.txt', 'a')
+fu = open('url.txt', 'a')
+nl = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N']
+
+def wtname(name, num, urls):
+    if num == 0:
+        return
+    for i in range(1,num+1):
+        if i == 1:
+            fn.write(name+'\n')
+        else:
+           fn.write(name+nl[i-1]+'\n')
+    wturl(urls)
+
+def wturl(urls):
+   urll = urls.split('|')[:-1]
+   for url in urll:
+      fu.write(url+'\n')
+
+
+lines = f0.readlines()
+for line in lines[1:]:
+    wl1 = line.split(',')
+    name = wl1[1]
+    num = int(wl1[-1][:-1])
+    urls = wl1[-2]
+    wtname(name, num, urls)
