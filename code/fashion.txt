@@ -2,7 +2,7 @@ print("在线更新版本-2022/3/15/17/43")
 
 
 f = open("data.csv","a")
-f.write("M,Title,SKU,Order,Price,MainPhoto,ColorPhoto,ColorName,SizeName,SizeGide,Disc,OtherPtoto,Other"+"\n")
+f.write("MM,Title,SKU,Order,Price,MainPhoto,ColorPhoto,ColorName,SizeName,SizeGide,Disc/OtherPtoto,Other"+"\n")
 f.close()
 driver = webdriver.Chrome()
 def visit1():
@@ -79,7 +79,7 @@ def visit3(url):
     shuxingp = ""
     for a in shuxingl:
         if "product_" in a:
-            shuxingp += a+"|"
+            shuxingp += '<img src="'+a+'">|'
     cac = ''
 
     i = 0
