@@ -1,6 +1,8 @@
 print("在线更新版本-2022/3/15/12/30")
 
-
+f = open("data.csv","a")
+f.write("Title,SKU,Order,Price,MainPhoto,ColorPhoto,ColorName,SizeName,SizeGide,Disc,OtherPtoto")
+f.close()
 driver = webdriver.Chrome()
 def visit1():
     driver.get('https://www.fashiontiy.com/')
