@@ -1,5 +1,7 @@
+print("在线更新-3/15/22/54")
+
 def send_mail(mail_from, password, mail_to, subject, content, subtype=None):
-    url = 'http://103.153.139.179:8888/mail_sys/send_mail_http.json'
+    url = 'http://103.153.139.117:8888/mail_sys/send_mail_http.json'
 
     pdata = {}
     pdata['mail_from'] = mail_from
