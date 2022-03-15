@@ -1,4 +1,4 @@
-print("在线更新版本-2022/3/15/14/08")
+print("在线更新版本-2022/3/15/17/43")
 
 
 f = open("data.csv","a")
@@ -94,7 +94,7 @@ def visit3(url):
     try:
         for m1 in colorl:
             for m2 in sizename.split("/")[:-1]:
-                other2 += "Color||*"+m1+"||*Size||*"+m2+"*0||*200||*code01"+"$$"
+                other2 += "Color||*"+m1+"||*Size||*"+m2+"||*0||*200||*code01"+"$$"
     except:
         other2 = ''
     f = open("data.csv", "a")
