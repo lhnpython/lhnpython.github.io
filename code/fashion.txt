@@ -94,7 +94,7 @@ def visit3(url):
     try:
         for m1 in colorl:
             for m2 in sizename.split("/")[:-1]:
-                other2 += "||*Color||*"+m1+"||*Size||*"+m2+"$$"
+                other2 += "Color||*"+m1+"||*Size||*"+m2+"$$"
     except:
         other2 = ''
     f = open("data.csv", "a")
