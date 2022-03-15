@@ -1,5 +1,6 @@
 print("在线更新版本-2022/3/14/18/22")
 
+
 driver = webdriver.Chrome()
 def visit1():
     driver.get('https://www.fashiontiy.com/')
@@ -13,12 +14,70 @@ def visit2(pageurl):
     return urls
 
 def visit3(url):
-    res = req.get(url).text
+    res0 = req.get(url).text
+    res = res0.replace(" ","")
     print(url)
-    name = url.split('/')[-1]
-    f = open('{}.txt'.format(name), 'a')
-    f.write(res.encode("gbk","ignore").decode("gbk","ignore"))
+    try:
+        title = re.findall('<divclass="right_title"style="text-transform:capitalize">(.*?)<',res)[0].replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
+    except:
+        title = ""
+    try:
+        sku = re.findall('<divclass="right_moqbase_key_value"><spanclass="key">SKU:</span><spanclass="notranslate">(.*?)<',res)[0].replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
+    except:
+        sku = ""
+    try:
+        order = re.findall(',Min.Order:(.*?),Colors',res)[0].replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
+    except:
+        order = ""
+    try:
+        price = re.findall(',WholesalePrice:(.*?)-',res)[0].replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
+    except:
+        price = ""
+    try:
+        photos = re.findall('<imgsrc="https://d1ww9fdmfwkmlf.cloudfront.net/products/(.*?)"',res)
+    except:
+        photos = []
+    colorp = ""
+    mainp = ""
+    for photo in photos:
+        if "color_" in photo:
+            colorp += "https://d1ww9fdmfwkmlf.cloudfront.net/products/"+photo+"|"
+        mainp += "https://d1ww9fdmfwkmlf.cloudfront.net/products/"+photo+"|"
+    try:
+        colorl = re.findall('"colorName":"(.*?)"', res)
+    except:
+        colorl = []
+    colorname = ""
+    for color in colorl:
+        colorname += color+"/"
+    try:
+        sizenamel = re.findall('"sizeCode":"\w+","sizeName":"(.*?)"',res)
+    except:
+        sizenamel = []
+    sizename = ""
+    for name in sizenamel:
+        if name not in sizename:
+            sizename += name+"/"
+    try:
+        sizegide = re.findall('{"sizeDetail":\[\[(.*?)]]',res)[0].replace('","',"|").replace('"],["', "\n")
+    except:
+        sizegide = ""
+    try:
+        disc = re.findall('<metaname="description"content="(.*?)>',res)[0].replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
+    except:
+        disc = ""
+    try:
+        shuxingl = re.findall('"originalImg":"(.*?)"', res)
+    except:
+        shuxingl = []
+    shuxingp = ""
+    for a in shuxingl:
+        if "product_" in a:
+            shuxingp += a+"|"
+    f = open("data.csv", "a")
+    f.write(title.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sku.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+order.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+price.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+mainp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+colorp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+colorname.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sizename.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sizegide.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+disc.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+shuxingp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+"\n")
     f.close()
+
 visit1()
 p = 1
 pageurl = driver.current_url
@@ -31,4 +90,4 @@ while True:
            visit3(url)
         p += 1
     except:
-        break
+        print("Error")
