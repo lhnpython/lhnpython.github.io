@@ -86,7 +86,7 @@ def visit3(url):
 
     try:
         for a1 in colorl:
-            cac += a1+"||"+colorpl[0][:-6]+"{}.jpg".format(i)+"$$"
+            cac += "Color||*"+a1+"||*"+colorpl[0][:-6]+"{}.jpg".format(i)+"$$"
             i += 1
     except:
         cac = ""
