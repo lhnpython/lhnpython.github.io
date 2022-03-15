@@ -53,9 +53,9 @@ def visit3(url):
         colorl = re.findall('"colorName":"(.*?)"', res)
     except:
         colorl = []
-    colorname = ""
+    colorname = "Color"
     for color in colorl:
-        colorname += color+"/"
+        colorname += "||*"+color
     try:
         sizenamel = re.findall('"sizeCode":"\w+","sizeName":"(.*?)"',res)
     except:
