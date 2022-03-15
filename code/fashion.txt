@@ -1,5 +1,6 @@
 print("在线更新版本-2022/3/15/14/08")
 
+
 f = open("data.csv","a")
 f.write("Title,SKU,Order,Price,MainPhoto,ColorPhoto,ColorName,SizeName,SizeGide,Disc,OtherPtoto,Other"+"\n")
 f.close()
@@ -20,7 +21,7 @@ def visit3(url):
     res = res0.replace(" ","")
     print(url)
     try:
-        title = re.findall('<divclass="right_title"style="text-transform:capitalize">(.*?)<',res)[0].replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
+        title = re.findall('<title>(.*?)</title>',res0)[0].replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
     except:
         title = ""
     try:
