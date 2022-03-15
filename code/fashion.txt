@@ -1,7 +1,7 @@
-print("在线更新版本-2022/3/15/12/30")
+print("在线更新版本-2022/3/15/13/14")
 
 f = open("data.csv","a")
-f.write("Title,SKU,Order,Price,MainPhoto,ColorPhoto,ColorName,SizeName,SizeGide,Disc,OtherPtoto"+"\n")
+f.write("Title,SKU,Order,Price,MainPhoto,ColorPhoto,ColorName,SizeName,SizeGide,Disc,OtherPtoto,Other"+"\n")
 f.close()
 driver = webdriver.Chrome()
 def visit1():
@@ -41,10 +41,13 @@ def visit3(url):
         photos = []
     colorp = ""
     mainp = ""
+    colorpl = []
     for photo in photos:
         if "color_" in photo:
             colorp += "https://d1ww9fdmfwkmlf.cloudfront.net/products/"+photo+"|"
+            colorpl.append(colorp)
         mainp += "https://d1ww9fdmfwkmlf.cloudfront.net/products/"+photo+"|"
+    colorpl = set(colorpl)
     try:
         colorl = re.findall('"colorName":"(.*?)"', res)
     except:
@@ -65,7 +68,7 @@ def visit3(url):
     except:
         sizegide = ""
     try:
-        disc = re.findall('<metaname="description"content="(.*?)>',res)[0].replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
+        disc = re.findall('<metaname="description"content="SKU:\S+,WholesalePrice:\S+,Min.Order:\S+,(.*?)>',res)[0].replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
     except:
         disc = ""
     try:
@@ -76,8 +79,11 @@ def visit3(url):
     for a in shuxingl:
         if "product_" in a:
             shuxingp += a+"|"
+    cac = ''
+    for a1,a2 in zip(colorl,colorpl):
+       cac += a1+"||"+a2+"$$"
     f = open("data.csv", "a")
-    f.write(title.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sku.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+order.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+price.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+mainp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+colorp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+colorname.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sizename.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sizegide.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+disc.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+shuxingp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+"\n")
+    f.write(title.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sku.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+order.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+price.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+mainp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+colorp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+colorname.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sizename.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sizegide.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+disc.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+shuxingp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+cac.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+"\n")
     f.close()
 
 visit1()
