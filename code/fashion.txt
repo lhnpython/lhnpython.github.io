@@ -1,4 +1,4 @@
-print("在线更新版本-2022/3/15/13/14")
+print("在线更新版本-2022/3/15/14/08")
 
 f = open("data.csv","a")
 f.write("Title,SKU,Order,Price,MainPhoto,ColorPhoto,ColorName,SizeName,SizeGide,Disc,OtherPtoto,Other"+"\n")
@@ -47,7 +47,7 @@ def visit3(url):
             colorp += "https://d1ww9fdmfwkmlf.cloudfront.net/products/"+photo+"|"
             colorpl.append(colorp)
         mainp += "https://d1ww9fdmfwkmlf.cloudfront.net/products/"+photo+"|"
-    colorpl = set(colorpl)
+
     try:
         colorl = re.findall('"colorName":"(.*?)"', res)
     except:
@@ -68,7 +68,7 @@ def visit3(url):
     except:
         sizegide = ""
     try:
-        disc = re.findall('<metaname="description"content="SKU:\S+,WholesalePrice:\S+,Min.Order:\S+,(.*?)>',res)[0].replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
+        disc = "Colors"+re.findall('<metaname="description"content="\S+olors(.*?)>',res)[0].replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
     except:
         disc = ""
     try:
@@ -80,8 +80,15 @@ def visit3(url):
         if "product_" in a:
             shuxingp += a+"|"
     cac = ''
-    for a1,a2 in zip(colorl,colorpl):
-       cac += a1+"||"+a2+"$$"
+
+    i = 0
+
+    try:
+        for a1 in colorl:
+            cac += a1+"||"+colorpl[0][:-6]+"{}.jpg".format(i)+"$$"
+            i += 1
+    except:
+        cac = ""
     f = open("data.csv", "a")
     f.write(title.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sku.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+order.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+price.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+mainp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+colorp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+colorname.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sizename.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sizegide.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+disc.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+shuxingp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+cac.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+"\n")
     f.close()
