@@ -90,8 +90,15 @@ def visit3(url):
             i += 1
     except:
         cac = ""
+    other2 = ""
+    try:
+        for m1 in colorl:
+            for m2 in sizename.split("/")[:-1]:
+                other2 += "||*Color||*"+m1+"||*Size||*"+m2+"$$"
+    except:
+        other2 = ''
     f = open("data.csv", "a")
-    f.write(title.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sku.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+order.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+price.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+mainp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+colorp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+colorname.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sizename.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sizegide.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+disc.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+shuxingp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+cac.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+"\n")
+    f.write(title.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sku.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+order.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+price.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+mainp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+colorp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+colorname.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sizename.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+sizegide.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+disc.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+shuxingp.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+cac.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+other2.replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+"\n")
     f.close()
 
 visit1()
@@ -107,3 +114,4 @@ while True:
         p += 1
     except:
         print("Error")
+
