@@ -74,7 +74,7 @@ def visit3(url):
     except:
         sizegide = ""
     try:
-        disc = "Colors"+re.findall('<metaname="description"content="\S+olors(.*?)>',res)[0].replace(",", "</ br>").encode("gbk","ignore").decode("gbk","ignore")
+        disc = "Colors"+re.findall('<metaname="description"content="\S+olors(.*?)>',res)[0].replace(",", "|").encode("gbk","ignore").decode("gbk","ignore")
     except:
         disc = ""
     try:
