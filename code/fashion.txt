@@ -1,4 +1,4 @@
-print("在线更新版本-2022/3/15/17/43")
+print("在线更新版本-2022/3/16/09/44")
 
 
 f = open("data.csv","a")
@@ -40,6 +40,11 @@ def visit3(url):
         photos = re.findall('<imgsrc="https://d1ww9fdmfwkmlf.cloudfront.net/products/(.*?)"',res)
     except:
         photos = []
+    if photos == []:
+        try:
+            photos = re.findall('<imgsrc="https://d1ww9fdmfwkmlf.cloudfront.net/product_bag/(.*?)"',res)
+        except:
+           pass
     colorp = ""
     mainp = ""
     colorpl = []
