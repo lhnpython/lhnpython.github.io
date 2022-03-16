@@ -70,7 +70,7 @@ def visit3(url):
         if name not in sizename:
             sizename += name+"/"
     try:
-        sizegide = re.findall('{"sizeDetail":\[\[(.*?)]]',res)[0].replace('","',"|").replace('"],["', "\n")
+        sizegide = re.findall('{"sizeDetail":\[\[(.*?)]]',res)[0].replace('","',"|").replace('"],["', "<br>\n")
     except:
         sizegide = ""
     try:
