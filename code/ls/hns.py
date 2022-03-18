@@ -41,7 +41,7 @@ def visit3(n,sfzh):
         phone = '-'
     print(xm,zylb,phone)
     f = open('{}.csv'.format(n),'a')
-    f.write(xm+","+zylb+","+phone+",-\n")
+    f.write(xm+","+"-"+","+phone+",-\n")
     f.close()
 
 

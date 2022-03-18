@@ -24,6 +24,8 @@ def visit2(n,pkid):
         xm = '-'
     try:
         zylb = re.findall('"zylb":"(.*?)"',res2)[0].strip().replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
+        if zylb == "4" or zylb == 4:
+            zylb = "公职"
     except:
         zylb = '-'
     try:

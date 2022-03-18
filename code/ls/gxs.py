@@ -21,7 +21,7 @@ def visit1(n,endurl):
         phone = '-'
     f = open('{}.csv'.format(n),'a')
     for a,b in zip(xm,phone):
-        f.write(a.strip().replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+","+b.strip().replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+",-\n")
+        f.write(a.strip().replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+",-,"+b.strip().replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")+",-\n")
         print(a,b)
     f.close()
     return True

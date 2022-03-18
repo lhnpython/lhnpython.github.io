@@ -14,6 +14,6 @@ for c in cityl:
     infolist = jsondata2["lsrylist"]
     f = open("{}.csv".format(n),'a')
     for info in infolist:
-        f.write(info[2]+","+info[1]+",-\n")
+        f.write(info[2]+",-,"+info[1]+",-\n")
         print(info)
     f.close()

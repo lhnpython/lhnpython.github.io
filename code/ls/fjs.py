@@ -23,19 +23,19 @@ def visit2(infourl, c):
     try:
         mail = re.findall('电子邮箱：(.*?)<', res1)[0].strip().replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
     except:
-        mail = 'None'
+        mail = '-'
     try:
         phone = re.findall('联系电话：(.*?)<', res1)[0].strip().replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
     except:
-        phone = 'None'
+        phone = '-'
     try:
         zylb = re.findall('执业类别：(.*?)<', res1)[0].strip().replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
     except:
-        zylb = 'None'
+        zylb = '-'
     try:
         name = re.findall('<divclass="firm-li-tit">(.*?)</div>', res1)[0].strip().replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
     except:
-        name = 'None'
+        name = '-'
     f = open("{}.csv".format(str(c)), 'a')
     f.write(name+","+zylb+","+phone+","+mail+"\n")
     f.close()
