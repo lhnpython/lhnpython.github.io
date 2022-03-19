@@ -35,13 +35,31 @@ def visit3(n,sfzh):
         zylb = re.findall('"ZYLB":"(.*?)"',res2)[0].strip().replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
     except:
         zylb = '-'
+    if zylb == "01":
+        zylb = "专职律师"
+    if zylb == "02":
+        zylb = "兼职律师"
+    if zylb == "03":
+        zylb = "公职律师"
+    if zylb == "04":
+        zylb = "公司律师"
+    if zylb == "05":
+        zylb = "香港居民律师"
+    if zylb == "06":
+        zylb = "澳门居民律师"
+    if zylb == "07":
+        zylb = "台湾居民律师"
+    if zylb == "08":
+        zylb = "军队律师"
+    if zylb == "09":
+        zylb = "法律援助律师"
     try:
         phone = re.findall('"SJHM":"(.*?)"',res2)[0].strip().replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
     except:
         phone = '-'
     print(xm,zylb,phone)
     f = open('{}.csv'.format(n),'a')
-    f.write(xm+","+"-"+","+phone+",-\n")
+    f.write(xm+","+zylb+","+phone+",-\n")
     f.close()
 
 

@@ -27,8 +27,24 @@ def visit(inid):
         xm = '-'
     try:
         zylb = jsondata1["result"]["lawyerInfo"]["lawyertype"]
+        if zylb == '0':
+            zylb = "兼职"
+        if zylb == '1':
+            zylb = "专职"
+        if zylb == '2':
+            zylb = "专职（派驻）"
+        if zylb == '3':
+            zylb = "法援"
+        if zylb == '4':
+            zylb = "公司"
         if zylb == '5':
             zylb = "公职"
+        if zylb == '6':
+            zylb = "专职基层法律工作者"
+        if zylb == '7':
+            zylb = "兼职基层法律工作者"
+        if zylb == '8':
+            zylb = "非律师"
     except:
         zylb = '-'
     try:

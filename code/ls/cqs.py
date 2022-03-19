@@ -24,8 +24,16 @@ def visit2(n,pkid):
         xm = '-'
     try:
         zylb = re.findall('"zylb":"(.*?)"',res2)[0].strip().replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
+        if zylb == "1" or zylb == 1:
+            zylb = "兼职"
+        if zylb == "2" or zylb == 2:
+            zylb = "专职"
+        if zylb == "3" or zylb == 3:
+            zylb = "公司"
         if zylb == "4" or zylb == 4:
             zylb = "公职"
+        if zylb == "5" or zylb == 5:
+            zylb = "法援"
     except:
         zylb = '-'
     try:

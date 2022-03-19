@@ -40,11 +40,15 @@ def visit2(n,url):
     except:
         xm = '-'
     try:
+        sf = re.findall('"practiceType":"(.*?)"',resi)[0].strip().replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
+    except:
+        sf = '-'
+    try:
         mail = re.findall('"email":"(.*?)"',resi)[0].strip().replace(",", ";").encode("gbk","ignore").decode("gbk","ignore")
     except:
         mail = '-'
     f = open('{}.csv'.format(n),'a')
-    f.write(xm+",-,-,"+mail+"\n")
+    f.write(xm+","+sf+",-,"+mail+"\n")
     print(xm,mail)
 
 for c in cityl:
