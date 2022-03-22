@@ -24,7 +24,7 @@ def visit1(n,url):
             mail = '-'
         f.write(xm+","+lb+",-,"+mail+"\n")
         print(xm,lb,mail)
-        if xm == '-' and lb == '-' and mail == '--':
+        if xm == '-' and lb == '-' and mail == '-':
             return False
     f.close()
 
