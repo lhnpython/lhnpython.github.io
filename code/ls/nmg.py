@@ -26,7 +26,7 @@ def visit2(endurl0):
     print(xm,mail)
     f.close()
 
-p = 1
+p = int(input("Please Input Page Number: "))
 while True:
     try:
         visit1('http://39.153.149.199:18180/dataservice/serve/request/law_lawyer?p='+str(p))
