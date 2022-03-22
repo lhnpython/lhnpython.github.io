@@ -2,7 +2,7 @@ import requests as req
 from lxml import etree
 import re
 
-cityl = ['福州', '厦门', '莆田', '三明泉州', '漳州', '南平', '龙岩', '宁德']
+cityl = ['三明', '泉州', '福州', '厦门', '莆田', '漳州', '南平', '龙岩', '宁德']
 
 def visit1(url, c):
     res = req.get(url).text
