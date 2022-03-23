@@ -107,7 +107,7 @@ def visit3(url):
     f.close()
 
 visit1()
-p = 1
+p = int(input(Please Input Page Number))
 pageurl = driver.current_url
 while True:
     try:
