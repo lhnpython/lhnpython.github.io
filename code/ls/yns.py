@@ -31,7 +31,7 @@ def visit1(n,endurl):
     return True
 
 
-for city in cityl:
+for city in cityl[int(input("输入开始城市"))-1:]:
     n = city.split('/')[0]
     uid = city.split('/')[1]
     p = 1
