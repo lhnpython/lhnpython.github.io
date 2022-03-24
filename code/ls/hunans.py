@@ -51,7 +51,7 @@ def visit2(n,url):
     f.write(xm+","+sf+",-,"+mail+"\n")
     print(xm,mail)
 
-for c in cityl:
+for c in cityl[int(input("输入开始城市号码: "))-1:]:
     n = c.split('/')[0]
     i = int(c.split('/')[1])
     driver.get('http://hn.12348.gov.cn/#/search')
