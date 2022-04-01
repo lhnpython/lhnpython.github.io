@@ -1,4 +1,6 @@
 print('lhnpython.COM')
+print('请保持网络连接')
+print('')
 
 shang = int(input('请输入上剪裁像素: '))
 xia = int(input('请输入下剪裁像素: '))
