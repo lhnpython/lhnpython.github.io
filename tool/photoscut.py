@@ -1,3 +1,5 @@
+print('lhnpython.COM')
+
 shang = int(input('请输入上剪裁像素: '))
 xia = int(input('请输入下剪裁像素: '))
 zuo = int(input('请输入左剪裁像素: '))
