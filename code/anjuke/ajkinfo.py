@@ -1,5 +1,6 @@
 print('在线版本, 最后更新于2022/3/21')
 slp = float(input('请输入间隔时间,太短可能需要手动进行验证: '))
+bn = int(input('请输入开始序号: '))-1
 driver = webdriver.Chrome()
 
 
@@ -29,7 +30,7 @@ def visit(name, url):
 
 f0 = open('a.txt', 'r')
 lines0 = f0.readlines()
-for line0 in lines0[int(input('请输入开始序号: '))-1:]:
+for line0 in lines0[bn:]:
     name = line0.split('/')[-2]
     f = open('{}.txt'.format(name), 'r')
     lines = f.readlines()
