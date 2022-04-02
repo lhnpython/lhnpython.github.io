@@ -29,7 +29,7 @@ def visit(name, url):
 
 f0 = open('a.txt', 'r')
 lines0 = f0.readlines()
-for line0 in lines0:
+for line0 in lines0[int(input('请输入开始序号: '))-1:]:
     name = line0.split('/')[-2]
     f = open('{}.txt'.format(name), 'r')
     lines = f.readlines()
