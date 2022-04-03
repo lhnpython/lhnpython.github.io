@@ -41,5 +41,5 @@ for line0 in lines0[bn:]:
         print(url)
         time.sleep(slp)
     f.close()
-   expect:
+   except:
     pass
