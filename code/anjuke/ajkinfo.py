@@ -31,6 +31,7 @@ def visit(name, url):
 f0 = open('a.txt', 'r')
 lines0 = f0.readlines()
 for line0 in lines0[bn:]:
+   try:
     name = line0.split('/')[-2]
     f = open('{}.txt'.format(name), 'r')
     lines = f.readlines()
@@ -40,3 +41,5 @@ for line0 in lines0[bn:]:
         print(url)
         time.sleep(slp)
     f.close()
+   expect:
+    pass
