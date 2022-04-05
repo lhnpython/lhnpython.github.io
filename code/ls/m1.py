@@ -8,8 +8,8 @@ def send_mail(mail_from, password, mail_to, subject, content, subtype=None):
     pdata['subject'] = subject
     pdata['content'] = content
     pdata['subtype'] = subtype
-    proxies = {"http": "http://218.75.102.198:8000"}
-    resp_data = post(url, pdata, proxies=proxies).json()
+    #proxies = {"http": "http://218.75.102.198:8000"}
+    resp_data = post(url, pdata).json()
     print(resp_data, mail_to)
 
 
