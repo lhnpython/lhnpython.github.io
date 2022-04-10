@@ -50,7 +50,7 @@ def visit1(p, slp):
         t8 = visit2(url)
         time.sleep(slp)
         datas = str(
-            pin) + ",链接: " + url + ',名称: ' + t1.strip() + ',状态: ' + t2.strip() + ',中标分类: ' + t3.strip() + ',ICS分类: ' + t4.strip() + ',' + t5.strip() + ',' + t6.strip() + ',价格: ' + t7.strip() + ',' + t8
+            pin) + ",链接: " + url + ',标准号和标准名称: ' + t1.strip() + ',状态: ' + t2.strip() + ',中标分类: ' + t3.strip() + ',ICS分类: ' + t4.strip() + ',' + t5.strip() + ',' + t6.strip() + ',价格: ' + t7.strip() + ',' + t8
         f = open('data.csv', 'a')
         f.write(datas + "\n")
         f.close()
@@ -69,6 +69,10 @@ def visit2(url):
         res20 = get(url, headers=headersdata)
     res21 = res20.text.encode("gbk", "ignore").decode("gbk", "ignore").replace('\r\n', '\n')
     res2 = res21.replace(',', ';')
+    try:
+        bzmc = findall('<h3>(.*?)<a name="1">', res2)[0]
+    except:
+        bzmc = 'None'
     try:
         i1 = findall('标准编号：<font size=3><strong>(.*?)<', res2)[0]
     except:
@@ -130,7 +134,7 @@ def visit2(url):
                 infot = infot + '\n' + a
             else:
                 infot += a
-    return i1 + ',"' + infot[1:] + '"'
+    return bzmc+","+i1 + ',"' + infot[1:] + '"'
 
 
 if __name__ == '__main__':
