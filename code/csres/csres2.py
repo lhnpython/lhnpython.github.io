@@ -134,7 +134,7 @@ def visit2(url):
                 infot = infot + '\n' + a
             else:
                 infot += a
-    return bzmc+","+i1 + ',"' + infot[1:] + '"'
+    return "标准名称"+bzmc+",标准号"+i1 + ',"' + infot[1:] + '"'
 
 
 if __name__ == '__main__':
