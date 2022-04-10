@@ -57,7 +57,7 @@ def visit1(p, slp):
         t8 = visit2(url)
         time.sleep(slp)
         datas = str(
-            pin) + ",链接: " + url + ',标准号和标准名称: ' + t1.strip() + ',状态: ' + t2.strip() + ',中标分类: ' + t3.strip() + ',ICS分类: ' + t4.strip() + ',' + t5.strip() + ',' + t6.strip() + ',价格: ' + t7.strip() + ',' + t8+",标准状态"+t2.strip()[1:-1]
+            pin) + ",链接: " + url + ',标准号和标准名称: ' + t1.strip() + ',状态: ' + t2.strip() + ',中标分类: ' + t3.strip() + ',ICS分类: ' + t4.strip() + ',' + t5.strip() + ',' + t6.strip() + ',价格: ' + t7.strip() + ',' + t8+",标准状态: "+t2.strip()[1:-1]
         f = open('data.csv', 'a')
         f.write(datas + "\n")
         f.close()
