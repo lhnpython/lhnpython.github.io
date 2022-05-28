@@ -5,7 +5,7 @@ headersdata = {
     'Connection': 'keep-alive',
     'Content-Length': '53',
     'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'Cookie': 'browserid=2578880608527072266; timezoneOffset=28800,0; _ga=GA1.2.1341622068.1648298034; recentapps=%7B%22105600%22%3A1653049033%2C%223590%22%3A1653049015%7D; _gid=GA1.2.1653337918.1653464471; steamMachineAuth76561199044924308=697B710F713AFE6D730A60007748FBCE796214DB; steamCountry=HK%7C0de93e39672c6029764cf886a557311f; sessionid=f1e63cc81c9fb639edb21ac7; steamLoginSecure=76561199302964869%7C%7C6D75F3EA946C1859B924B9C03BEB862B661D826D',
+    'Cookie': 'browserid=2578880608527072266; timezoneOffset=28800,0; _ga=GA1.2.1341622068.1648298034; recentapps=%7B%22105600%22%3A1653049033%2C%223590%22%3A1653049015%7D; _gid=GA1.2.1653337918.1653464471; steamMachineAuth76561199044924308=697B710F713AFE6D730A60007748FBCE796214DB; sessionid=2288cb51192781e2b78eeea5; steamCountry=HK%7C0de93e39672c6029764cf886a557311f; steamLoginSecure=76561199302964869%7C%7C350378B3E2DCF5D52827E6C7E5404620523E8303',
     'Host': 'store.steampowered.com',
     'Origin': 'https://store.steampowered.com',
     'Referer': 'https://store.steampowered.com/account/redeemwalletcode',
